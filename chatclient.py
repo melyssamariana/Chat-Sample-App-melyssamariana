@@ -13,9 +13,9 @@ class RecvHandler(threading.Thread):
     
   def run(self):
     while True:
-        #print('Client receiving handler is ready.')
+        print('Client receiving handler is ready.')
         (conn, addr) = self.client_socket.accept() # accepts connection from server
-        #print('Server connected to me.')
+        print('Server connected to me.')
         marshaled_msg_pack = conn.recv(1024)   # receive data from server
         msg_pack = pickle.loads(marshaled_msg_pack) # unmarshal message pack
         print("\nMESSAGE FROM: " + msg_pack[1] + ": " + msg_pack[0])
